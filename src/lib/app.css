@@ -19,6 +19,11 @@
     --color-gray-900: oklch(0.205 0 0); /* --color-neutral-900 */
     --color-gray-950: oklch(0.145 0 0); /* --color-neutral-950 */
 
+    --color-brand-1: rgb(242 239 231);
+    --color-brand-2: rgb(154 203 208);
+    --color-brand-3: rgb(72 166 167);
+    --color-brand-4: rgb(0 106 113);
+
     --radius-lg: initial;
     --radius: 0.5rem; /* --radius-lg */
 
