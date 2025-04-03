@@ -1,11 +1,14 @@
 <script lang="ts">
-    import { default as parseBookmarks } from "node-bookmarks-parser"
+    import { Bookmarks as BookmarksComponent } from "$lib/components/Bookmarks"
     import { Button } from "$lib/components/Button"
     import { InputError } from "$lib/components/InputError"
     import { InputFile } from "$lib/components/InputFile"
     import { InputMessage } from "$lib/components/InputMessage"
+    import { parse, type Bookmarks } from "$lib/utilities/bookmarks"
 
-    let bookmarks = $state<ReturnType<typeof parseBookmarks>>()
+    let bookmarks = $state<Bookmarks>()
+
+    $inspect(bookmarks)
 
     let form: {
         status: "idle" | "importing" | "success" | "error"
@@ -72,7 +75,7 @@
             }
 
             try {
-                bookmarks = parseBookmarks(content)
+                bookmarks = parse(content)
                 form.status = "success"
             } catch (error) {
                 form.error = String(error)
@@ -119,4 +122,10 @@
             </InputMessage>
         {/if}
     </form>
+
+    <hr class="my-12 border-gray-800" />
+
+    {#if bookmarks}
+        <BookmarksComponent {bookmarks} />
+    {/if}
 </div>

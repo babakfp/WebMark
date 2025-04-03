@@ -1,1 +1,1 @@
-export { default as bookmarks } from "./bookmarks.svelte"
+export { default as Bookmarks } from "./Bookmarks.svelte"
