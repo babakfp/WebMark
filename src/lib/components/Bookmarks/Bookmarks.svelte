@@ -15,9 +15,13 @@
 <ul class="space-y-2">
     {#each bookmarks as bookmark}
         <li class="group space-y-2">
-            {#if bookmark.nsRoot && bookmark.children}
+            {#if bookmark.nsRoot}
                 <h3 class="group-not-first:mt-8!">{bookmark.title}</h3>
-                <SelfComponent bookmarks={bookmark.children} {indent} />
+                {#if bookmark.children}
+                    <SelfComponent bookmarks={bookmark.children} {indent} />
+                {:else}
+                    <p class="text-gray-500">No bookmarks found.</p>
+                {/if}
             {:else if bookmark.type === "folder"}
                 <details>
                     <summary class="list-none">
@@ -29,6 +33,8 @@
                                 bookmarks={bookmark.children}
                                 indent={indent + 1}
                             />
+                        {:else}
+                            <p class="text-gray-500">No bookmarks found.</p>
                         {/if}
                     </main>
                 </details>
