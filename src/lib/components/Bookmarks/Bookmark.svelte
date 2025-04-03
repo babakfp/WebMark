@@ -3,12 +3,17 @@
 
     let {
         bookmark,
+        indent = 0,
     }: {
         bookmark: Bookmark
+        indent: number
     } = $props()
 </script>
 
-<div class="flex h-12 items-center gap-2 border-2 border-gray-800 px-4">
+<div
+    class="ml-[calc(var(--indent)*2rem)] flex h-12 items-center gap-2 border-2 border-gray-800 px-4"
+    style:--indent={indent}
+>
     {#if bookmark.type === "folder"}
         📁
     {:else if bookmark.icon}
