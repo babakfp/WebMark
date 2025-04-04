@@ -1,7 +1,6 @@
 <script lang="ts">
     import { Bookmarks as BookmarksComponent } from "$lib/components/Bookmarks"
     import { Button } from "$lib/components/Button"
-    import { CheckBox } from "$lib/components/CheckBox"
     import { InputError } from "$lib/components/InputError"
     import { InputFile } from "$lib/components/InputFile"
     import { InputMessage } from "$lib/components/InputMessage"
@@ -84,8 +83,6 @@
             }
         }
     }
-
-    let foldersFirst = $state(false)
 </script>
 
 <svelte:head>
@@ -127,10 +124,6 @@
     </form>
 
     <hr class="my-12 border-gray-800" />
-
-    <CheckBox bind:checked={foldersFirst}>
-        <span>Folders first</span>
-    </CheckBox>
 
     {#if bookmarks}
         <BookmarksComponent {bookmarks} />
