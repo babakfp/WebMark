@@ -1,4 +1,6 @@
 <script lang="ts">
+    import IconFolderSimpleFill from "phosphor-icons-svelte/IconFolderSimpleFill.svelte"
+    import IconGlobeSimpleFill from "phosphor-icons-svelte/IconGlobeSimpleFill.svelte"
     import type { Bookmark } from "$lib/utilities/bookmarks"
 
     let {
@@ -15,7 +17,7 @@
     style:--indent={indent}
 >
     {#if bookmark.type === "folder"}
-        📁
+        <IconFolderSimpleFill class="shrink-0" />
     {:else if bookmark.icon}
         <img
             class="aspect-square h-4 w-4"
@@ -23,7 +25,7 @@
             alt={bookmark.title}
         />
     {:else}
-        🌐
+        <IconGlobeSimpleFill class="shrink-0" />
     {/if}
     <span class="line-clamp-1">{bookmark.title}</span>
 </div>

@@ -19,6 +19,7 @@
         "@types/node": "22.13.10",
         "clsx": "2.1.1",
         "node-bookmarks-parser": "2.0.0",
+        "phosphor-icons-svelte": "2.0.2",
         "prettier": "3.5.3",
         "prettier-plugin-svelte": "3.3.3",
         "prettier-plugin-tailwindcss": "0.6.11",
