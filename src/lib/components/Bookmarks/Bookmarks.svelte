@@ -8,7 +8,7 @@
         indent = 0,
     }: {
         bookmarks: Bookmarks
-        indent: number
+        indent?: number
     } = $props()
 </script>
 
@@ -18,7 +18,7 @@
             {#if bookmark.nsRoot}
                 <h3 class="group-not-first:mt-8!">{bookmark.title}</h3>
                 {#if bookmark.children}
-                    <SelfComponent bookmarks={bookmark.children} {indent} />
+                    <SelfComponent bookmarks={bookmark.children} />
                 {:else}
                     <p class="text-gray-500">No bookmarks found.</p>
                 {/if}
